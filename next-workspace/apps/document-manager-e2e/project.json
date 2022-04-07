@@ -1,0 +1,48 @@
+{
+  "root": "apps/document-manager-e2e",
+  "sourceRoot": "apps/document-manager-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "document-manager:build",
+        "dev": true,
+        "port": 4201
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "document-manager:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "document-manager:build:production"
+      }
+    },
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/document-manager-e2e/cypress.json",
+        "devServerTarget": "document-manager:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "document-manager:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/document-manager-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["document-manager"]
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "admin-portal": "apps/admin-portal",
+    "admin-portal-e2e": "apps/admin-portal-e2e",
+    "document-manager": "apps/document-manager",
+    "document-manager-e2e": "apps/document-manager-e2e",
+    "ui-lib": "libs/ui-lib"
+  }
+}
